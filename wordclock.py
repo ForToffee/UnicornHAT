@@ -148,8 +148,8 @@ def quickTest():
 		
 #main function 
 quickTest()
-while True:
-	fullTest()
+#while True:
+#	fullTest()
 	
 while True:
 	#get time parts
