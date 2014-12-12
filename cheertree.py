@@ -70,7 +70,7 @@ def parseColour(feedItem):
     for name in namesToRGB.keys():
         if feedItem["field1"] == name:
             if mode != 0 and name == 'green':	#ignore green when in lights or star mode
-                break 
+                name = "yellow" 
             pixels.insert(0, namesToRGB[name])    #add the colour to the head
             break
 
@@ -129,9 +129,9 @@ while True:
     if getEntryID(data) > lastID:   #Has this entry_id been processed before?
         parseColour(data)
         showColour(pixels[0])
-        if mode != 2:
-            time.sleep(5)
-            showPixels()
+        #if mode != 2:
+        time.sleep(5)
+        showPixels()
     else:
         time.sleep(refresh)
 

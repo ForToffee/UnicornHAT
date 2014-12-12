@@ -10,7 +10,7 @@ A CheerLights christmas tree on you UnicornHAT.  Operates in one of 3 modes
 - 1 = Lights; the main part of the tree is green with 5 lights and the star controlled by #cheerlights
 - 2 = Star; just the top pixel changes to the most recent
 
-Note: modes 1 and 2 ignore the colour green as you wouldn't see it!
+Note: modes 1 and 2 swaps the colour green for yellow otherwise you wouldn't see it!
 
 wordclock.py
 ------------
