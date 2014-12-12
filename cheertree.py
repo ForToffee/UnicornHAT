@@ -16,7 +16,7 @@ pattern =        [[3,0],
 		  [3,6],
 		  [3,7]]
 
-lights = [[3,0],[1,2],[5,2],[3,4],[0,5],[6,5]]
+lights = [[3,0],[2,2],[4,2],[3,4],[1,5],[5,5]]
 mode = 1	#0=all pixels, 1=lights list only, 2=star only
 
 if mode == 0:
@@ -58,7 +58,8 @@ def getJSON(url):
 	except Exception:
 		import traceback
 		print 'generic exception: ' + traceback.format_exc()
-	
+
+	return []		
 
 #use the JSON object to identify the colour in use,
 #update the last entry_id processed
@@ -77,6 +78,8 @@ def parseColour(feedItem):
 
 #read the last entry_id
 def getEntryID(feedItem):
+    if len(feedItem) == 0:
+        return -1
     return int(feedItem["entry_id"])
 
 #refresh the displayed pixels
@@ -113,8 +116,8 @@ UH.rotation(180)
 UH.brightness(0.4)
 
 #process the currently available list of colours
-if mode != 2:
-    data = getJSON("feed.json")
+data = getJSON("feed.json")
+if mode != 2 and len(data) > 0:
     for feedItem in data["feeds"]:
         parseColour(feedItem)
     showPixels()
